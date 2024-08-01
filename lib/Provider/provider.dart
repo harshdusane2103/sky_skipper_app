@@ -1,14 +1,15 @@
 
 import 'package:flutter/cupertino.dart';
+import 'package:shared_preferences/shared_preferences.dart';
 
 import 'package:sky_skipper_app/API/api.dart';
 import 'package:sky_skipper_app/Modal/Modal.dart';
-// import 'package:shared_preferences/shared_preferences.dart';
+
 
 
 
 class HomeProvider extends ChangeNotifier {
-  List weather =[];
+  List<String> weather =[];
 WeatherModal? weatherModal;
   String search = "Surat";
   int selectedIndex = 0;
@@ -31,20 +32,18 @@ Future<WeatherModal?> fromMap(String search) async {
     return weatherModal;
   }
 
-  Future<void> AddToFav(String name,double temp_c,String text)
+  Future<void> addFavCity(String name,String temp,String type)
   async {
-    String data="$name $temp_c $text";
-    // SharedPreferences preferences = await SharedPreferences.getInstance();
+    String data = '$name-$temp-$type';
+    SharedPreferences sharedPreferences = await SharedPreferences.getInstance();
     weather.add(data);
-    // preferences.setStringList('weather',(data));
-
-
-
+    // weather.clear();
+    sharedPreferences.setStringList('weather',weather);
   }
-  getFavouriteWeather()
+  Future<void> getFavouriteWeather()
   async {
-    // SharedPreferences preferences = await SharedPreferences.getInstance();
-    // weather=preferences.getStringList('weather') ??<String>[];
+    SharedPreferences sharedPreferences = await SharedPreferences.getInstance();
+    weather = sharedPreferences.getStringList('weather') ?? <String>[];
     notifyListeners();
   }
   HomeProvider()
@@ -54,20 +53,4 @@ Future<WeatherModal?> fromMap(String search) async {
 }
 
 
-// Future<void> setwallpapre(String url) async {
-//   String result;
-//   bool goToHome = false;
-//   try {
-//     result = await AsyncWallpaper.setWallpaper(
-//       url: url,
-//       wallpaperLocation: AsyncWallpaper.HOME_SCREEN,
-//       goToHome: goToHome,
-//       toastDetails: ToastDetails.success(),
-//       errorToastDetails: ToastDetails.error(),
-//     )
-//         ? 'Wallpaper set'
-//         : 'Failed to set wallpaper.';
-//   } on PlatformException {
-//     result = 'Failed to set wallpaper.';
-//   }
-// }
+
