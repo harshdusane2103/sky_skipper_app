@@ -17,12 +17,16 @@
 <div align="center">
 
 
-  <video src="https://github.com/harshdusane2103/sky_skipper_app/blob/master/weather.mp4">
+  <video src="https://github.com/user-attachments/assets/17f350c6-b311-4691-ba22-d5f1ba714eeb">
 
 
 
 
 </div>
+
+
+
+
 
 
 
