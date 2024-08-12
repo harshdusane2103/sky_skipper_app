@@ -90,8 +90,7 @@ class ForecastDay {
   ForecastDay(this.date, this.day, this.hour);
 
   factory ForecastDay.fromJson(Map m1) {
-    return ForecastDay(
-        m1['date'],
+    return ForecastDay(m1['date'],
         DayModal.fromJson(m1['day']),
         (m1['hour'] as List)
             .map(

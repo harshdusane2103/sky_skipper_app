@@ -46,6 +46,13 @@ Future<WeatherModal?> fromMap(String search) async {
     weather = sharedPreferences.getStringList('weather') ?? <String>[];
     notifyListeners();
   }
+  void Delete(int index)
+  {
+    weather.removeAt(index);
+    notifyListeners();
+  }
+
+
   HomeProvider()
   {
     getFavouriteWeather();

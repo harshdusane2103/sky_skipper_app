@@ -51,12 +51,19 @@ class DetailScreen extends StatelessWidget {
                       color: Colors.white,
                       fontWeight: FontWeight.w500,
                       fontSize: 21)),
-              trailing: Text('${temp}°C',
+          leading: Text('${temp}°C',
                   style: TextStyle(
                       color: Colors.white,
                       fontWeight: FontWeight.w500,
                       fontSize: 38)),
+              trailing: InkWell(
+                onTap: () {
+
+                  homeProviderfalse.Delete(index);
+                },
+                  child: Icon(Icons.delete)),
             ),
+
           );
         },
       ),

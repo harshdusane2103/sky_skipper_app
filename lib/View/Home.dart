@@ -94,13 +94,16 @@ class HomeScreen extends StatelessWidget {
                                     weather!.locationModal.name,
                                     weather.currentModal.temp_c.toString(),
                                     weather.currentModal.condition.text,
+
                                   );
                                   Navigator.of(context).push(MaterialPageRoute(
                                       builder: (context) => DetailScreen()));
                                 },
-                                child: Icon(
-                                  Icons.favorite_border,
-                                  color: Colors.white,
+                                child: Icon(weather?.locationModal.name !=0? Icons.favorite
+                                      : Icons.favorite_outline,
+                                  color: weather?.locationModal.name !=0
+                                      ? Colors.red
+                                      : Colors.white,
                                 )),
                             SizedBox(
                               width: 20,
@@ -141,11 +144,11 @@ class HomeScreen extends StatelessWidget {
                             children: [
                               ListTile(
                                 title: Text(
-                                  '${weather!.locationModal.name}, ${weather!.locationModal.region},',
+                                  '${weather.locationModal.name}, ${weather.locationModal.region},',
                                   style: TextStyle(color: Colors.white),
                                 ),
                                 subtitle: Text(
-                                  '${weather?.locationModal.country} | ${weather?.locationModal.localtime}',
+                                  '${weather.locationModal.country} | ${weather.locationModal.localtime}',
                                   style:
                                       TextStyle(height: 3, color: Colors.white),
                                 ),
