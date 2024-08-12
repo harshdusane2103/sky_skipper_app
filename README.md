@@ -17,7 +17,7 @@
 <div align="center">
 
 
-  <video src="https://github.com/user-attachments/assets/ce60d8ac-ce49-4cec-9abe-74d81b43b871">
+  <video src="https://github.com/harshdusane2103/sky_skipper_app/blob/master/weather.mp4">
 
 
 
